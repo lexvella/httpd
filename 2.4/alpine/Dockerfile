@@ -57,6 +57,8 @@ RUN set -x \
 		tar \
 		# mod_deflate
 		zlib-dev \
+		# modules
+		mod-auth-cas
 	\
 	&& { \
 		wget -O httpd.tar.bz2 "$HTTPD_BZ2_URL" \
