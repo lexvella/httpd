@@ -57,8 +57,6 @@ RUN set -x \
 		tar \
 		# mod_deflate
 		zlib-dev \
-		# modules
-		mod-auth-cas
 	\
 	&& { \
 		wget -O httpd.tar.bz2 "$HTTPD_BZ2_URL" \
@@ -110,6 +108,7 @@ RUN set -x \
 			| sort -u \
 	)" \
 	&& apk add --virtual .httpd-rundeps $runDeps \
+	&& apk add mod_auth_cas \
 	&& apk del .build-deps
 
 COPY httpd-foreground /usr/local/bin/
